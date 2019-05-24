@@ -16,6 +16,8 @@ pipeline {
             sh '''#!/bin/bash
 git clone --single-branch --branch master https://github.com/FRRouting/frr.git $BUILD_NUMBER
 cd $BUILD_NUMBER
+git clean -dfx
+git reset --hard
 sudo apt-get -o Acquire::Check-Valid-Until=false update
 echo "Preparing the build"
 ./tools/tarsource.sh -V
@@ -38,6 +40,8 @@ mv ../*.deb /tmp/$GIT_BRANCH/packages/'''
             sh '''#!/bin/bash
 git clone --single-branch --branch master https://github.com/FRRouting/frr.git $BUILD_NUMBER
 cd $BUILD_NUMBER
+git clean -dfx
+git reset --hard
 sudo apt-get -o Acquire::Check-Valid-Until=false update
 echo "Preparing the build"
 ./tools/tarsource.sh -V
@@ -60,6 +64,8 @@ mv ../*.deb /tmp/$GIT_BRANCH/packages/'''
             sh '''#!/bin/bash
 git clone --single-branch --branch master https://github.com/FRRouting/frr.git $BUILD_NUMBER
 cd $BUILD_NUMBER
+git clean -dfx
+git reset --hard
 sudo apt-get -o Acquire::Check-Valid-Until=false update
 echo "Preparing the build"
 ./tools/tarsource.sh -V
